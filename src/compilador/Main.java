@@ -1,4 +1,3 @@
-package compilador;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/compilador/compilador.fxml")
+                getClass().getResource("compilador.fxml")
         );
         Parent root = loader.load();
         Scene scene = new Scene(root);

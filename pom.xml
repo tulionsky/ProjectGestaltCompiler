@@ -51,8 +51,16 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>${project.basedir}/src/compilador</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/compilador</directory>
+                <includes>
+                    <include>**/*.fxml</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
-
             <!-- Plugin JavaFX para ejecutar -->
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -76,17 +84,16 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <sourceDirectory>src/grammar</sourceDirectory>
-                    <outputDirectory>
-                        src/compilador/compilador
-                    </outputDirectory>
+                    <sourceDirectory>${project.basedir}/src/grammar</sourceDirectory>
+                    <outputDirectory>${project.build.directory}/generated-sources/antlr4</outputDirectory>
                     <arguments>
                         <argument>-package</argument>
                         <argument>compilador</argument>
                     </arguments>
+                    <visitor>true</visitor>
+                    <listener>true</listener>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
